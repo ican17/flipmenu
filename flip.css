@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+.main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #000;
+}
+.header{
+    color:white;
+    font-size: 2vh;
+    margin-bottom: 2vh;
+}
+.header a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.card{
+    background-color: transparent;
+    width: 30vh;
+    height: 50vh;
+    perspective: 1000px;
+    perspective-origin: center;
+    margin-right: 0.5vh;
+    
+    
+
+}
+.card > .card-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: 1s transform ease; 
+    transform-style: preserve-3d;
+    background-color: transparent;
+}
+.card:hover > .card-container{
+    transform: rotateY(180deg);
+}
+.card-container > .front,.card-container > .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+}
+.card-container > .front{
+
+    background-image: linear-gradient(to bottom right,red, yellow);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5vh;
+    color: white;
+    font-size: 3vh;
+    cursor: pointer;
+}
+.card-container > .back{
+    
+    background-color: transparent;
+    color: white;
+    transform: rotateY(180deg);
+    cursor: pointer;
+   
+}
+
+
+.back > ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    perspective-origin: center ;
+
+}
+
+.back > ul > li{
+    
+    text-align: center;
+    height: calc(100% - (0.2vh * 4) /5);
+    width: 100%;
+    transition: 1s transform ease;
+    transform-style: preserve-3d;
+    
+}
+.back > ul > li:not(:last-child){
+    
+    margin-bottom: 0.2vh;
+}
+
+.back > ul > li > .child-front, .back > ul > li > .child-back {
+    
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    border-radius: 0.5vh;
+}
+.back > ul > li > .child-front{
+    background-image: linear-gradient(to bottom left,red, orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back > ul > li > .child-back{
+    background-color: orange;
+    transform: rotateX(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back > ul > li:hover{
+    
+    transform: rotateX(180deg);
+}
+
+.back > ul > li:hover .menu {
+    opacity: 0;    
+}
+.child-back span, .child-front span{
+    color: white;
+    display: block;
+}
+.child-back span{
+    font-weight: bold;
+}
