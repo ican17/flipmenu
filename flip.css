@@ -64,6 +64,7 @@
     
     background-color: transparent;
     color: white;
+    font-size: 3vh;
     transform: rotateY(180deg);
     cursor: pointer;
    
